@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ecom.test.SeleniumTestNgTestApp.AssertionsTest">
+      <class name="com.ecom.test.SeleniumTestNgTestApp.GridTest">
         <methods>
-          <include name="launchBrowser"/>
-          <include name="loginFaceBook"/>
-          <include name="verifyfaceBookTitle"/>
+          <include name="afterTest"/>
+          <include name="setUp"/>
+          <include name="loadAmazoneHomePageTest"/>
         </methods>
-      </class> <!-- com.ecom.test.SeleniumTestNgTestApp.AssertionsTest -->
+      </class> <!-- com.ecom.test.SeleniumTestNgTestApp.GridTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

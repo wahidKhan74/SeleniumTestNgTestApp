@@ -5,6 +5,8 @@ import static org.testng.Assert.assertEquals;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -38,7 +40,7 @@ public class ParallelTests {
 	@Test(groups="FireFox")
 	public void lauchFireFoxTest() {
 		System.setProperty("webdriver.gecko.driver", firefoxDriverPath);
-		driver = new ChromeDriver();
+		driver = new FirefoxDriver();
 		driver.get(facebookSiteUrl);
 		try {
 			Thread.sleep(2000);
@@ -50,6 +52,7 @@ public class ParallelTests {
 	@Test(groups="FireFox",dependsOnMethods="lauchFireFoxTest")
 	void verifyFaceBookHomePage() {
 		System.out.println(Thread.currentThread().getId());
+		Reporter.log("FireFox ::: verifyFaceBookHomePage :: Thread Id :"+Thread.currentThread().getId());
 		assertEquals(driver.getCurrentUrl(), facebookSiteUrl);
 		driver.findElement(By.id("email")).sendKeys("abc@gmail.com");
 		driver.findElement(By.id("pass")).sendKeys("abc123");
